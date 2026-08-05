@@ -10,7 +10,7 @@ const Friends = () => {
   const token = localStorage.getItem("token");
   async function getFriendsPosts() {
     try {
-      const res = await Api("http://localhost:8080/friendsPosts", "get",
+      const res = await Api("https://backend-r2uw.onrender.com/friendsPosts", "get",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -43,7 +43,7 @@ const Friends = () => {
         <div className="friend-post" key={post._id}>
           <div className="friend-header">
             <div className="friend-user">
-              <img src={post.user.profilePic? `http://localhost:8080/uploads/${post.user.profilePic}`: defaultAvatar} className="friend-avatar" alt=""/>
+              <img src={post.user.profilePic? `https://backend-r2uw.onrender.com/uploads/${post.user.profilePic}`: defaultAvatar} className="friend-avatar" alt=""/>
               <div>
                 <h6>{post.user.userName}</h6>
                 <small>{post.destination}</small>
@@ -53,7 +53,7 @@ const Friends = () => {
               <i className="bi bi-three-dots"></i>
             </button>
           </div>
-          <img src={`http://localhost:8080/uploads/${post.coverImage}`} className="friend-cover" alt="" />
+          <img src={`https://backend-r2uw.onrender.com/uploads/${post.coverImage}`} className="friend-cover" alt="" />
           <div className="friend-body">
             <h5>{post.title}</h5>
             <p>{post.destination}</p>

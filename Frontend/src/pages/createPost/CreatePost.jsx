@@ -23,7 +23,7 @@ const CreatePost = () => {
     formData.append("destination", post.destination);
     formData.append("coverImage", post.image);
     formData.append("id", post.user);
-    const res = await Api("http://localhost:8080/createTrip", "post", formData);
+    const res = await Api("https://backend-r2uw.onrender.com/createTrip", "post", formData);
     console.log(res);
     navigate("/myTrips");
   }

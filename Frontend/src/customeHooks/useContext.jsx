@@ -19,7 +19,7 @@ export function AuthProvider({ children }) {
         setCurrentUser(res)
     }
     async function tripss() {
-        const res = await Api("http://localhost:8080/trips", "get",);
+        const res = await Api("https://backend-r2uw.onrender.com/trips", "get",);
         const filRes = res.filter((trip) => {
             return trip.days != 0
         })

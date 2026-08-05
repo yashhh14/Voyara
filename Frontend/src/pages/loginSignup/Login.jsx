@@ -26,7 +26,7 @@ const Login = () => {
 
     async function handleLogin() {
         try {
-            const data = await Api("http://localhost:8080/login", "post", details);
+            const data = await Api("https://backend-r2uw.onrender.com/login", "post", details);
             if (data.message !== "Login Success") {
                 data.message!=="incorrect password"?alert("username or email not exists"):"incorrect password"
                 return 

@@ -15,7 +15,7 @@ function EditProfile() {
     const [bio, setBio] = useState("");
     const [profilePic, setProfilePic] = useState(null);
     async function getProfile() {
-        const res = await Api("http://localhost:8080/profile", "get",
+        const res = await Api("https://backend-r2uw.onrender.com/profile", "get",
             {
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -36,7 +36,7 @@ function EditProfile() {
             formData.append("profilePic", profilePic);
         }
         try {
-            const res = await Api("http://localhost:8080/updateProfile", "put", formData,
+            const res = await Api("https://backend-r2uw.onrender.com/updateProfile", "put", formData,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -61,7 +61,7 @@ function EditProfile() {
             <h2>Edit Profile</h2>
             <form onSubmit={handleSubmit}>
                 <div className="profile-image">
-                    <img src={profilePic ? URL.createObjectURL(profilePic) : user.profilePic ? `http://localhost:8080/uploads/${user.profilePic}` : defaultProfile} alt="" />
+                    <img src={profilePic ? URL.createObjectURL(profilePic) : user.profilePic ? `https://backend-r2uw.onrender.com/uploads/${user.profilePic}` : defaultProfile} alt="" />
                     <input type="file" accept="image/*" onChange={(e) => setProfilePic(e.target.files[0])} />
                 </div>
                 <label>Username</label>

@@ -29,7 +29,7 @@ const AddDay = () => {
         day.images.forEach(image => {
             formData.append("images", image);
         });
-        const res = await Api(`http://localhost:8080/trip/${tripId}/addDay`, "patch", formData);
+        const res = await Api(`https://backend-r2uw.onrender.com/trip/${tripId}/addDay`, "patch", formData);
         navigate('/myTrips')
     }
     return (

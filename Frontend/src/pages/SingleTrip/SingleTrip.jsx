@@ -13,7 +13,7 @@ const SingleTrip = () => {
     const [trip, setTrip] = useState(null);
     useEffect(() => {
         async function getTrip() {
-            const res = await Api(`http://localhost:8080/trip/${tripId}`, "get");
+            const res = await Api(`https://backend-r2uw.onrender.com/trip/${tripId}`, "get");
             setLoading(false)
             setTrip(res);
         }
@@ -25,11 +25,11 @@ const SingleTrip = () => {
     return (
         <div className="single-trip">
             <div className="trip-cover">
-                <img src={`http://localhost:8080/uploads/${trip.coverImage}`} alt="" />
+                <img src={`https://backend-r2uw.onrender.com/uploads/${trip.coverImage}`} alt="" />
                 <div className="cover-overlay2">
                     <h1>{trip.title}</h1>
                     <div className="trip-user">
-                        <img src={trip.user.profilePic ? `http://localhost:8080/uploads/${trip.user.profilePic}` : profile} alt="" />
+                        <img src={trip.user.profilePic ? `https://backend-r2uw.onrender.com/uploads/${trip.user.profilePic}` : profile} alt="" />
                         <div>
                             <h4>{trip.user.userName}</h4>
                             <span>{trip.days.length} Days Journey</span>
@@ -78,7 +78,7 @@ const SingleTrip = () => {
                             {day.images.map((img) => (
                                 <img
                                     key={img}
-                                    src={`http://localhost:8080/uploads/${img}`}
+                                    src={`https://backend-r2uw.onrender.com/uploads/${img}`}
                                     alt=""
                                 />
                             ))}

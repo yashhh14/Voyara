@@ -14,7 +14,7 @@ function Search() {
             return;
         }
         const timer = setTimeout(async () => {
-            const res = await Api(`http://localhost:8080/search?q=${query}`,"get");
+            const res = await Api(`https://backend-r2uw.onrender.com/search?q=${query}`,"get");
             setUsers(res.users);
             setTrips(res.trips);
         }, 1000);
@@ -27,7 +27,7 @@ function Search() {
             {
                 users.map(user=>(
                     <div className="user-card" key={user._id}>
-                        <img src={user.profilePic ? `http://localhost:8080/uploads/${user.profilePic}` : "/default-avatar.png" } />
+                        <img src={user.profilePic ? `https://backend-r2uw.onrender.com/uploads/${user.profilePic}` : "/default-avatar.png" } />
                         <span>{user.userName}</span>
                     </div>
                 ))
@@ -36,7 +36,7 @@ function Search() {
             {
               trips.map(trip=>(
                     <div className="trip-card" key={trip._id}>
-                        <img src={`http://localhost:8080/uploads/${trip.coverImage}`}/>
+                        <img src={`https://backend-r2uw.onrender.com/uploads/${trip.coverImage}`}/>
                         <div>
                             <h5>{trip.title}</h5>
                             <small>{trip.destination}</small>

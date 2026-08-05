@@ -79,7 +79,7 @@ const Signup = () => {
         if (err === "User Name Already Exists") return;
         if (passwordErr) return;
         try {
-            const signUpRes = await Api("http://localhost:8080/signup", "post", details);
+            const signUpRes = await Api("https://backend-r2uw.onrender.com/signup", "post", details);
             setVisible(true)
         } catch (err) {
             setVisible(false)
@@ -90,7 +90,7 @@ const Signup = () => {
         if (err1) return;
         const timer = setTimeout(async () => {
             try {
-                const res = await Api(`http://localhost:8080/userName/${details.userName}`, "get");
+                const res = await Api(`https://backend-r2uw.onrender.com/userName/${details.userName}`, "get");
                 setErr(res.message);
             } catch (err) {
                 console.log(err);

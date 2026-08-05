@@ -15,7 +15,7 @@ const Post = () => {
     const [trips, setTrips] = useState([]);
     const { currentUser, setCurrentUser } = useContext(CurrentUserContext)
     async function tripss() {
-        const res = await Api("http://localhost:8080/trips", "get",);
+        const res = await Api("https://backend-r2uw.onrender.com/trips", "get",);
         const filRes = res.filter((trip) => {
             return trip.days != 0
         })
@@ -26,7 +26,7 @@ const Post = () => {
     }
     async function followUser(id) {
         try {
-            const res = await Api(`http://localhost:8080/followUser/${id}`, "post", {},
+            const res = await Api(`https://backend-r2uw.onrender.com/followUser/${id}`, "post", {},
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -76,7 +76,7 @@ const Post = () => {
                     <div className="travel-post" key={post._id}>
                         <div className="travel-header">
                             <div className="user-details">
-                                <img src={post.user?.profilePic ? `http://localhost:8080/uploads/${post.user.profilePic}` : profile} alt="" className="postCoverImg" />                                <div>
+                                <img src={post.user?.profilePic ? `https://backend-r2uw.onrender.com/uploads/${post.user.profilePic}` : profile} alt="" className="postCoverImg" />                                <div>
                                     <h5>{post.user.userName}</h5>
                                     <small>{dif}</small>
                                 </div>
@@ -94,7 +94,7 @@ const Post = () => {
                             )}
                         </div>
                         <div className="travel-cover">
-                            <img src={`http://localhost:8080/uploads/${post.coverImage}`} alt="" />
+                            <img src={`https://backend-r2uw.onrender.com/uploads/${post.coverImage}`} alt="" />
                         </div>
                         <div className="travel-stats">
                             <div className="cover-overlay">

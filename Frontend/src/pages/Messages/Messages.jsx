@@ -17,12 +17,12 @@ const Messages = () => {
   const [text, setText] = useState("");
   const [messages, setMessages] = useState([]);
   async function getFriends() {
-    const res = await Api("http://localhost:8080/friends", "get");
+    const res = await Api("https://backend-r2uw.onrender.com/friends", "get");
     setFriends(res);
   }
   async function openChat(friend) {
     setSelectedFriend(friend);
-    const res = await Api(`http://localhost:8080/messages/${friend._id}`, "get");
+    const res = await Api(`https://backend-r2uw.onrender.com/messages/${friend._id}`, "get");
     setMessages(res);
   }
   function sendMessage() {
@@ -54,7 +54,7 @@ const Messages = () => {
         {
           friends.map(friend => (
             <div key={friend._id} className={`friend ${selectedFriend?._id === friend._id ? "active" : ""}`} onClick={() => openChat(friend)} >
-              <img src={ friend.profilePic ? `http://localhost:8080/uploads/${friend.profilePic}` : profile } alt="" />
+              <img src={ friend.profilePic ? `https://backend-r2uw.onrender.com/uploads/${friend.profilePic}` : profile } alt="" />
               <div>
                 <h5>{friend.userName}</h5>
                 <small>Online</small>
@@ -68,7 +68,7 @@ const Messages = () => {
           selectedFriend ?
             <>
               <div className="chat-header">
-                <img src={ selectedFriend.profilePic ? `http://localhost:8080/uploads/${selectedFriend.profilePic}` : profile } alt="" />
+                <img src={ selectedFriend.profilePic ? `https://backend-r2uw.onrender.com/uploads/${selectedFriend.profilePic}` : profile } alt="" />
                 <h4>{selectedFriend.userName}</h4>
               </div>
               <div className="chat-body">

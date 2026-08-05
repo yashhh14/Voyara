@@ -28,7 +28,7 @@ function Settings() {
     navigate("/login");
   }
   async function getProfile() {
-    const res = await Api("http://localhost:8080/profile", "get",
+    const res = await Api("https://backend-r2uw.onrender.com/profile", "get",
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -48,7 +48,7 @@ function Settings() {
     const value = e.target.checked
     setUser({ ...user, isPublic: value });
     try {
-      await Api( "http://localhost:8080/updatePrivacy", "put",
+      await Api( "https://backend-r2uw.onrender.com/updatePrivacy", "put",
         { isPublic: value },
         {
           headers: {

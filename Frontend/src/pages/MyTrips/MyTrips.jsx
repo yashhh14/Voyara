@@ -13,7 +13,7 @@ const MyTrips = () => {
     navigate('/createpost')
   }
   async function tripsData() {
-    const res = await Api("http://localhost:8080/myTrips", "get",{},
+    const res = await Api("https://backend-r2uw.onrender.com/myTrips", "get",{},
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -36,7 +36,7 @@ const MyTrips = () => {
             <div className="col-lg-4 col-md-6 mb-4" key={trip._id}>
               <div className="card shadow border-0 rounded-4 h-100">
                 <img
-                  src={`http://localhost:8080/uploads/${trip.coverImage}`}
+                  src={`https://backend-r2uw.onrender.com/uploads/${trip.coverImage}`}
                   className="card-img-top"
                   style={{
                     height: "220px",

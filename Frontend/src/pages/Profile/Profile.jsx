@@ -15,7 +15,7 @@ function Profile() {
   const [user, setUser] = useState([]);
   const [myTrips,setMyTrips]=useState([])
   async function getProfile() {
-    const res = await Api("http://localhost:8080/profile", "get",
+    const res = await Api("https://backend-r2uw.onrender.com/profile", "get",
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -25,7 +25,7 @@ function Profile() {
     setUser(res);
   }
   async function tripsData() {
-    const res = await Api("http://localhost:8080/myTrips", "get",
+    const res = await Api("https://backend-r2uw.onrender.com/myTrips", "get",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -45,7 +45,7 @@ function Profile() {
   return (
     <div className="profile-page">
       <div className="profile-header">
-        <img src={user.profilePic ? `http://localhost:8080/uploads/${user.profilePic}` : profile} className="profile-avatar" />
+        <img src={user.profilePic ? `https://backend-r2uw.onrender.com/uploads/${user.profilePic}` : profile} className="profile-avatar" />
         <div className="profile-info">
           <div className="top-row">
             <div className="d-flex gap-2 align-items-center">
@@ -97,7 +97,7 @@ function Profile() {
         {myTrips.map(trip => (
           <img
             key={trip._id}
-            src={`http://localhost:8080/uploads/${trip.coverImage}`}
+            src={`https://backend-r2uw.onrender.com/uploads/${trip.coverImage}`}
           />
         ))}
 

@@ -4,7 +4,6 @@ const upload = require("../middlewares/multer");
 const authMiddleware = require("../middlewares/authMiddleware");
 const Trip = require("../models/tripModel");
 const User = require('../models/userModel.js')
-require("dotenv").config();
 const jwt = require('jsonwebtoken')
 const secretKey = process.env.JWT_SECRET;
 function verifyToken(token) {

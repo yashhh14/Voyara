@@ -2,7 +2,6 @@ const express = require("express");
 const app = express.Router();
 const Message = require("../models/messageModel");
 const jwt = require('jsonwebtoken')
-require("dotenv").config();
 const secretKey = process.env.JWT_SECRET;
 function verifyToken(token) {
     try {

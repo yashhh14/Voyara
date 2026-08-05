@@ -3,7 +3,6 @@ const app = express.Router();
 const Trip = require("../models/tripModel.js");
 const User = require('../models/userModel.js')
 const jwt = require('jsonwebtoken')
-require("dotenv").config();
 const secretKey = process.env.JWT_SECRET;
 function verifyToken(token) {
     try {

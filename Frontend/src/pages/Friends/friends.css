@@ -1,0 +1,65 @@
+.friends-feed{
+    width:100%;
+    max-width:700px;
+    margin:auto;
+    padding:25px;
+}
+
+.friend-post{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+    margin-bottom:30px;
+}
+
+.friend-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px;
+}
+
+.friend-user{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.friend-avatar{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.friend-cover{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+}
+
+.friend-body{
+    padding:18px;
+}
+
+.trip-details{
+    display:flex;
+    justify-content:space-between;
+    margin-top:15px;
+    color:#666;
+}
+
+.empty-feed{
+    height:80vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:#777;
+}
+
+.empty-feed i{
+    font-size:70px;
+    margin-bottom:15px;
+}

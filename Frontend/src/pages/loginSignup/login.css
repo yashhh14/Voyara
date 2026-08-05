@@ -1,0 +1,195 @@
+.voyara-login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:#f7f6f6;
+    padding: 24px;
+}
+
+.voyara-login-card {
+    width: 100%;
+    max-width: 480px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 48px 44px;
+    box-shadow: 0 4px 40px rgba(79, 70, 229, 0.08);
+}
+
+.voyara-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 32px;
+}
+
+.voyara-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e1b3a;
+}
+
+.voyara-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #1e1b3a;
+    margin-bottom: 6px;
+}
+
+.voyara-subtitle {
+    text-align: center;
+    color: #8b8a99;
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+.voyara-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #e6e5ec;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s ease;
+}
+
+.voyara-input-group:focus-within {
+    border-color: #7c3aed;
+}
+
+.voyara-input-icon {
+    color: #8b8a99;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.voyara-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    color: #1e1b3a;
+    background: transparent;
+}
+
+.voyara-input::placeholder {
+    color: #a9a8b3;
+}
+
+.voyara-eye-icon {
+    color: #8b8a99;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.voyara-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+
+.voyara-remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1e1b3a;
+    cursor: pointer;
+}
+
+.voyara-remember input {
+    accent-color: #7c3aed;
+    width: 16px;
+    height: 16px;
+}
+
+.voyara-forgot {
+    color: #6d5cf0;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.voyara-forgot:hover {
+    text-decoration: underline;
+}
+
+.voyara-login-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #4f6df5 0%, #9333ea 100%);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.voyara-login-btn:hover {
+    opacity: 0.92;
+}
+
+.voyara-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #a9a8b3;
+    font-size: 13px;
+    margin: 22px 0;
+}
+
+.voyara-divider::before,
+.voyara-divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #e6e5ec;
+}
+
+.voyara-divider span {
+    padding: 0 14px;
+}
+
+.voyara-google-btn {
+    width: 100%;
+    padding: 13px;
+    border: 1.5px solid #e6e5ec;
+    border-radius: 12px;
+    background: #fff;
+    color: #1e1b3a;
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.voyara-google-btn:hover {
+    background: #f9f9fb;
+}
+
+.voyara-signup-text {
+    text-align: center;
+    margin-top: 26px;
+    color: #6b6a78;
+    font-size: 14px;
+}
+
+.voyara-signup-link {
+    color: #6d5cf0;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.voyara-signup-link:hover {
+    text-decoration: underline;
+}

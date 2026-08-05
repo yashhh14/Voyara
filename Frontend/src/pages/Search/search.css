@@ -1,0 +1,53 @@
+.search-page {
+    width: 100%;
+    margin: auto;
+    padding: 25px;
+}
+
+.search-box {
+    width: 100%;
+    padding: 14px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 25px;
+}
+
+.user-card,
+.trip-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    border-radius: 15px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.user-card:hover,
+.trip-card:hover {
+    background: #f5f5f5;
+}
+
+.user-card img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.trip-card img {
+    width: 100px;
+    height: 70px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+@media (min-width : 600px) {
+    .search-box {
+        width: 70%;
+        padding: 14px;
+        border-radius: 15px;
+        border: 1px solid #ddd;
+        margin-bottom: 25px;
+    }
+}

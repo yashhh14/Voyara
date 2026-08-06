@@ -4,10 +4,12 @@ import "./friends.css";
 import defaultAvatar from "../../assets/profile.png";
 import useApi from "../../customeHooks/useApi";
 import profile from '../../assets/profile.png'
+import { useNavigate } from "react-router-dom";
 
 const Friends = () => {
   const [post, setPost] = useState([]);
   const { Api, setData } = useApi()
+  const navigate = useNavigate()
   const token = localStorage.getItem("token");
   async function getFriendsPosts() {
     try {
@@ -25,7 +27,9 @@ const Friends = () => {
       console.log(err);
     }
   }
-
+  function SingleTrip(id) {
+    navigate(`/trip/${id}`);
+  }
   useEffect(() => {
     getFriendsPosts();
   }, []);

@@ -36,6 +36,10 @@ function SideNav() {
                         <FaHome className="menu-icon" />
                         Home
                     </NavLink>
+                    <NavLink to="/friends" className={getClassName}>
+                        <FaUserFriends className="menu-icon" />
+                        Friends
+                    </NavLink>
                     <NavLink to="/search" className={getClassName}>
                         <FaSearch className="menu-icon" />
                         Search
@@ -43,10 +47,6 @@ function SideNav() {
                     <NavLink to="/myTrips" className={getClassName}>
                         <FaSuitcaseRolling className="menu-icon" />
                         My Trips
-                    </NavLink>
-                    <NavLink to="/friends" className={getClassName}>
-                        <FaUserFriends className="menu-icon" />
-                        Friends
                     </NavLink>
                     <NavLink to="/messages" className={getClassName}>
                         <FaRegCommentAlt className="menu-icon" />

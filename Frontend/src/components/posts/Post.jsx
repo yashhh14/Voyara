@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import useApi from "../../customeHooks/useApi";
-import "./posts.css";
+import "./post.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useNavigate } from "react-router-dom";
 import Shimmer from "../Shimmer/Shimmer";

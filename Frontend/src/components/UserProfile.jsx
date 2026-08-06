@@ -1,28 +1,58 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useApi from "../..//src/customeHooks/useApi";
 import profile from '../../src/assets/profile.png';
 import Loader from "./Loader/Loader";
+import { jwtDecode } from "jwt-decode";
+import {
+    FaLock
+} from "react-icons/fa";
+
 
 function UserProfile() {
     const { id } = useParams();
     const { Api } = useApi();
     const [user, setUser] = useState({});
+    const navigate = useNavigate()
     const [userTrips, setUserTrips] = useState([]);
     const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        async function getUser() {
-            const res = await Api(`https://backend-r2uw.onrender.com/search/${id}`, "get");
-            setUser(res.user);
-            setLoading(false)
-            setUserTrips(res.trips);
+    const token = localStorage.getItem('token')
+    const decode = jwtDecode(token)
+    const currentId = decode.id
+    async function getUser() {
+        const res = await Api(`https://backend-r2uw.onrender.com/search/${id}`, "get");
+        setUser(res.user);
+        setLoading(false)
+        setUserTrips(res.trips);
+    }
+    async function followUser(id) {
+        try {
+            const res = await Api(`https://backend-r2uw.onrender.com/followUser/${id}`, "post", {},
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+            );
+        } catch (err) {
+            console.log(err);
         }
+    }
+    useEffect(() => {
         getUser();
     }, []);
+    useEffect(() => {
+        if (user._id && currentId === user._id) {
+            navigate("/profile", { replace: true });
+        }
+    }, [user, currentId, navigate]);
+    if (loading) {
+        return <Loader />;
+    }
     if (loading) {
         return <Loader />
     }
+
     return (
         <div className="profile-page">
             <div className="profile-header">
@@ -54,7 +84,7 @@ function UserProfile() {
             </div>
             <p>{user.bio}</p>
             <div className="profile-buttons">
-                <button>Follow</button>
+                <button onClick={() => followUser(user._id)}>{decode.following.includes(user._id) ? "Following" : "Follow"}</button>
             </div>
             <div className="profile-tabs">
                 <button>
@@ -62,21 +92,12 @@ function UserProfile() {
                 </button>
             </div>
             <div className="trip-grid">
-
                 {
                     userTrips.map(trip => (
-
-                        <img
-                            key={trip._id}
-                            src={`https://backend-r2uw.onrender.com/uploads/${trip.coverImage}`}
-                            alt={trip.title}
-                        />
-
+                        <img key={trip._id} src={`https://backend-r2uw.onrender.com/uploads/${trip.coverImage}`} alt={trip.title} />
                     ))
                 }
-
             </div>
-
         </div>
     );
 }

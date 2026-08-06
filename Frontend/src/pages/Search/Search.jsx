@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useApi from "../../customeHooks/useApi";
 import "./search.css";
+import profile from '../../../src/assets/profile.png'
 import { useNavigate } from "react-router-dom";
 
 function Search() {
@@ -37,7 +38,7 @@ function Search() {
                             src={
                                 user.profilePic
                                     ? `https://backend-r2uw.onrender.com/uploads/${user.profilePic}`
-                                    : "/default-avatar.png"
+                                    : profile
                             }
                             alt=""
                         />

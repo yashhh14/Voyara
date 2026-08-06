@@ -30,6 +30,9 @@ function Nav() {
                     <NavLink to="/" className={getClassName}>
                         <FaHome className="footMenu-icon" />
                     </NavLink>
+                    <NavLink to="/friends" className={getClassName}>
+                        <FaUserFriends className="menu-icon" />
+                    </NavLink>
                     <NavLink to="/search" className={getClassName}>
                         <FaSearch className="footMenu-icon" />
                     </NavLink>

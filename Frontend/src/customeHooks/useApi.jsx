@@ -10,11 +10,9 @@ const useApi = () => {
             Authorization: `Bearer ${token}`
         }
     }) {
-        console.log(url, Method, config.headers);
         try {
             if (Method == "get") {
                 const res = await axios.get(`${url}`, config)
-                console.log(config);
                 return res.data
             }
             if (Method == "post") {

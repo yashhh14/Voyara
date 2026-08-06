@@ -3,9 +3,10 @@ import axios from "axios";
 import "./friends.css";
 import defaultAvatar from "../../assets/profile.png";
 import useApi from "../../customeHooks/useApi";
+import profile from '../../assets/profile.png'
 
 const Friends = () => {
-  const [posts, setPosts] = useState([]);
+  const [post, setPost] = useState([]);
   const { Api, setData } = useApi()
   const token = localStorage.getItem("token");
   async function getFriendsPosts() {
@@ -17,7 +18,8 @@ const Friends = () => {
           }
         }
       );
-      setPosts(res);
+      const filRes = res.filter((trip) => trip.days.length > 0);
+      setPost(filRes);
 
     } catch (err) {
       console.log(err);
@@ -27,7 +29,7 @@ const Friends = () => {
   useEffect(() => {
     getFriendsPosts();
   }, []);
-  if (posts.length === 0) {
+  if (post.length === 0) {
     return (
       <div className="empty-feed">
         <i className="bi bi-people"></i>
@@ -39,25 +41,78 @@ const Friends = () => {
 
   return (
     <div className="friends-feed">
-      {posts.map((post) => (
-        <div className="friend-post" key={post._id}>
-          <div className="friend-header">
-            <div className="friend-user">
-              <img src={post.user.profilePic? `https://backend-r2uw.onrender.com/uploads/${post.user.profilePic}`: defaultAvatar} className="friend-avatar" alt=""/>
+      {post.map((trip) => (
+        <div className="travel-post" key={trip._id}>
+          <div className="travel-header">
+            <div className="user-details">
+              <img
+                src={
+                  trip.user?.profilePic
+                    ? `https://backend-r2uw.onrender.com/uploads/${trip.user.profilePic}`
+                    : profile
+                }
+                alt=""
+                className="postCoverImg"
+              />
+
               <div>
-                <h6>{post.user.userName}</h6>
-                <small>{post.destination}</small>
+                <h5>{trip.user.userName}</h5>
               </div>
             </div>
-            <button className="btn btn-light">
-              <i className="bi bi-three-dots"></i>
+          </div>
+
+          <div className="travel-cover">
+            <img
+              src={`https://backend-r2uw.onrender.com/uploads/${trip.coverImage}`}
+              alt=""
+            />
+          </div>
+
+          <div className="travel-stats">
+            <div>
+              <h5>{trip.days.length}</h5>
+              <small>{trip.days.length === 1 ? "Day" : "Days"}</small>
+            </div>
+
+            <div>
+              <h5>{trip.days.length}</h5>
+              <small>{trip.days.length === 1 ? "Place" : "Places"}</small>
+            </div>
+
+            <div>
+              <h5>
+                {trip.days.reduce(
+                  (sum, day) => sum + day.images.length,
+                  0
+                )}
+              </h5>
+              <small>Photos</small>
+            </div>
+
+            <div>
+              <h5>
+                ₹
+                {trip.days.reduce(
+                  (sum, day) => sum + Number(day.expenses),
+                  0
+                )}
+              </h5>
+              <small>Expenses</small>
+            </div>
+            <button className="btn btn-primary" onClick={() => SingleTrip(trip._id)} >
+              View Trip Details
             </button>
           </div>
-          <img src={`https://backend-r2uw.onrender.com/uploads/${post.coverImage}`} className="friend-cover" alt="" />
-          <div className="friend-body">
-            <h5>{post.title}</h5>
-            <p>{post.destination}</p>
+
+          <h3>{trip.title}</h3>
+
+          <div className="travel-caption">
+            <p>
+              <b>{trip.user.userName}</b> 📍 {trip.destination}
+            </p>
           </div>
+
+
         </div>
       ))}
     </div>

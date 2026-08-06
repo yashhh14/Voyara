@@ -75,7 +75,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/trip/:tripId/add-day" element={<AddDay />} />
             <Route path="/trip/:tripId" element={<SingleTrip />} />
-            <Route path="/user/:id" element={<UserProfile />} />
+            <Route path="/search/:id" element={<UserProfile />} />
             <Route path="/trip/:id" element={<SingleTrip />} />
           </Routes>
         </main>

@@ -51,7 +51,7 @@ app.get("/search", async (req, res) => {
     }
 });
 
-app.get("/user/:id", async (req, res) => {
+app.get("/search/:id", async (req, res) => {
     const user = await User.findById(req.params.id).select("-password");
     const trips = await Trip.find({
         user: req.params.id

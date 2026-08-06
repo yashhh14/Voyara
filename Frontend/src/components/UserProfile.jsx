@@ -10,7 +10,7 @@ function UserProfile() {
     const [userTrips, setUserTrips] = useState([]);
     useEffect(() => {
         async function getUser() {
-            const res = await Api(`https://backend-r2uw.onrender.com/user/${id}`,"get");
+            const res = await Api(`https://backend-r2uw.onrender.com/search/${id}`,"get");
             setUser(res.user);
             setUserTrips(res.trips);
         }

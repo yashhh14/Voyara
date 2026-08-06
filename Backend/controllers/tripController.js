@@ -111,7 +111,7 @@ app.get('/trips', async (req, res) => {
     }
 })
 app.get("/myTrips", async (req, res) => {
-    // try {
+    try {
     const token = req.headers.authorization.split(" ")[1];
     const decoded = verifyToken(token);
     if (!decoded) {
@@ -121,11 +121,11 @@ app.get("/myTrips", async (req, res) => {
     }
     const trips = await Trip.find({ user: decoded.id }).populate("user", "userName profilePic");
     res.status(200).json(trips);
-    // } catch (err) {
-    //     res.status(500).json({
-    //         message: err.message
-    //     });
-    // }
+    } catch (err) {
+        res.status(500).json({
+            message: err.message
+        });
+    }
 });
 app.patch("/trip/:tripId/addDay", upload.array("images", 10),
     async (req, res) => {

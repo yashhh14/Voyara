@@ -1,0 +1,35 @@
+body{
+    background:#f5f7fb;
+}
+
+.card{
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+}
+
+.form-control,
+.form-select{
+    border-radius:12px;
+    padding:14px;
+}
+
+.btn-primary{
+    background:#5b5ce2;
+    border:none;
+}
+.closeee{
+    border: none;
+    background: transparent;
+    margin-left: 95%;
+}
+
+.btn-primary:hover{
+    background:#494ad6;
+}
+.closeImage{
+    border: 1px solid red;
+    background-color: black;
+}

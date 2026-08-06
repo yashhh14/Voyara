@@ -9,7 +9,7 @@ const app = express()
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "https://voyarav1.netlify.app"
+        origin: ["https://voyarav1.netlify.app", "http://localhost:5173",]
     }
 });
 const Message = require("./models/messageModel");
@@ -23,7 +23,7 @@ const { setServers } = require("node:dns/promises")
 setServers(["1.1.1.1", "8.8.8.8"]);
 
 app.use(cors({
-    origin: "https://voyarav1.netlify.app",
+    origin: ["https://voyarav1.netlify.app", "http://localhost:5173",],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"]
 }))
 
@@ -35,7 +35,7 @@ connectDB()
 const auth = require('./controllers/authentication.js')
 
 const messages = require('./controllers/messages.js')
-app.use('/',messages)
+app.use('/', messages)
 
 const searchController = require('./controllers/searchContoller.js')
 app.use('/', searchController)

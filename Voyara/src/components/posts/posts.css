@@ -1,0 +1,108 @@
+.travel-post {
+    width: 99%;
+    border-radius: 15px 15px 0px 0px;
+    margin: auto;
+    background: #fff;
+    overflow: hidden;
+    border-bottom: 1px solid grey;
+    position: relative;
+}
+
+.feed-container {
+    gap: 10px;
+}
+
+.travel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 5px;
+    width: 90%;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    z-index: 986;
+}
+.postCoverImg{
+    border-radius: 50%;
+}
+.user-details {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.user-details img {
+    width: 40px;
+    height: 40px;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+
+}
+
+
+.travel-cover img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.travel-stats {
+    display: flex;
+    height: 10%;
+    justify-content: space-between;
+    padding: 1px 15px;
+    background: white;
+}
+
+.travel-caption {
+    display: flex;
+    gap: 10px;
+    padding: 3px 10px;
+}
+
+.travel-actions {
+    padding: 20px;
+    display: flex;
+    gap: 30px;
+    font-size: 22px;
+}
+
+@media (min-width : 601px) {
+    .content {
+        width: 100%;
+        overflow-y: auto;
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        padding:0px;
+    }
+
+    .feed-container {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contentAside {
+        display: flex;
+    }
+
+    .travel-post {
+        width: 60%;
+        height: 70%;
+        margin: 0% 20% 0% 10%;
+        background: #fff;
+        overflow: hidden;
+        border-radius: 25px 25px 0px 0px;
+    }
+
+}

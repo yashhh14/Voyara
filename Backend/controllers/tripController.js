@@ -96,11 +96,14 @@ app.post("/createTrip", upload.single("coverImage"),
 );
 app.get('/trips', async (req, res) => {
     try {
-        const trips = await Trip.find().populate(
-            "user",
-            "userName profilePic isPublic"
-        );
-        res.status(200).json(trips);
+        const trips = await Trip.find().populate({
+            path: "user",
+            select: "userName profilePic isPublic",
+            match: { isPublic: true }
+        });
+        const publicTrips = trips.filter(trip => trip.user);
+
+        res.status(200).json(publicTrips);
     } catch (err) {
         res.status(500).json({
             message: err.message
@@ -109,15 +112,15 @@ app.get('/trips', async (req, res) => {
 })
 app.get("/myTrips", async (req, res) => {
     // try {
-        const token = req.headers.authorization.split(" ")[1];
-        const decoded = verifyToken(token);
-        if (!decoded) {
-            return res.status(401).json({
-                message: "Unauthorized"
-            });
-        }
-        const trips = await Trip.find({ user: decoded.id }).populate("user", "userName profilePic");
-        res.status(200).json(trips);
+    const token = req.headers.authorization.split(" ")[1];
+    const decoded = verifyToken(token);
+    if (!decoded) {
+        return res.status(401).json({
+            message: "Unauthorized"
+        });
+    }
+    const trips = await Trip.find({ user: decoded.id }).populate("user", "userName profilePic");
+    res.status(200).json(trips);
     // } catch (err) {
     //     res.status(500).json({
     //         message: err.message

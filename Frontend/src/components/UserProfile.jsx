@@ -2,22 +2,26 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useApi from "../..//src/customeHooks/useApi";
 import profile from '../../src/assets/profile.png';
+import Loader from "./Loader/Loader";
 
 function UserProfile() {
     const { id } = useParams();
     const { Api } = useApi();
     const [user, setUser] = useState({});
     const [userTrips, setUserTrips] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         async function getUser() {
-            const res = await Api(`https://backend-r2uw.onrender.com/search/${id}`,"get");
+            const res = await Api(`https://backend-r2uw.onrender.com/search/${id}`, "get");
             setUser(res.user);
+            setLoading(false)
             setUserTrips(res.trips);
         }
         getUser();
     }, []);
-    if (!user._id) {
-        return <h2>Loading...</h2>;
+    if (loading) {
+        return <Loader />
     }
     return (
         <div className="profile-page">

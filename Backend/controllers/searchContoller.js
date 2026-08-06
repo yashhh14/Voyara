@@ -56,6 +56,7 @@ app.get("/search/:id", async (req, res) => {
     const trips = await Trip.find({
         user: req.params.id
     });
+    console.log(user,trips);
     res.json({
         user,
         trips

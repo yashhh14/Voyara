@@ -19,9 +19,6 @@ const Post = () => {
         const filRes = res.filter((trip) => {
             return trip.days != 0 
         })
-        const ress = filRes.filter((trip)=>{
-            console.log(trip.user);
-        })
         const timer = setTimeout(() => {
             setLoading(false);
         }, 500);

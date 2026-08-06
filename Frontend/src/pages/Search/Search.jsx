@@ -31,7 +31,7 @@ function Search() {
                     <div
                         className="user-card"
                         key={user._id}
-                        onClick={() => navigate(`/user/${user._id}`)}
+                        onClick={() => navigate(`/search/${user._id}`)}
                     >
                         <img
                             src={

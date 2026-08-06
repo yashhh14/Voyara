@@ -98,7 +98,7 @@ app.get('/trips', async (req, res) => {
     try {
         const trips = await Trip.find().populate(
             "user",
-            "userName profilePic"
+            "userName profilePic isPublic"
         );
         res.status(200).json(trips);
     } catch (err) {

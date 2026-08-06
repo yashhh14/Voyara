@@ -17,11 +17,16 @@ const Post = () => {
     async function tripss() {
         const res = await Api("https://backend-r2uw.onrender.com/trips", "get",);
         const filRes = res.filter((trip) => {
-            return trip.days != 0
+            return trip.days != 0 
+        })
+        const ress = filRes.filter((trip)=>{
+            console.log(trip.user);
         })
         const timer = setTimeout(() => {
             setLoading(false);
         }, 500);
+        
+
         setTrips(filRes);
     }
     async function followUser(id) {

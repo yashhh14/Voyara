@@ -185,9 +185,6 @@
 /* Mobile */
 
 @media(max-width:600px){
-    .friends-list{
-        /* display: none; */
-    }
     .message-page{
         margin-bottom: 30px;
     }

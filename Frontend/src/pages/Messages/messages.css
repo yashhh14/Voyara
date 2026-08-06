@@ -1,6 +1,7 @@
 .message-page {
     display: flex;
     height: 88vh;
+    margin-bottom: 50px;
     background: #fff;
     border-radius: 12px;
     overflow: hidden;
@@ -183,28 +184,25 @@
 
 /* Mobile */
 
-@media(max-width:768px){
-
+@media(max-width:600px){
     .friends-list{
-        width:25%;
-
+        /* display: none; */
     }
-
+    .message-page{
+        margin-bottom: 30px;
+    }
     .chat-section{
         width:75%;
+        margin-bottom: 5%;
     }
-
     .friend h5{
         font-size:15px;
     }
-
     .chat-header h4{
         font-size:18px;
     }
-
     .my-message,
     .friend-message{
         max-width:85%;
     }
-
 }

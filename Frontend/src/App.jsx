@@ -18,6 +18,7 @@ import AddDay from "./components/AddDay";
 import EditProfile from "./components/EditProfile/EditProfile";
 import { AuthProvider } from './customeHooks/useContext.jsx';
 import SingleTrip from "./pages/SingleTrip/SingleTrip.jsx";
+import UserProfile from "./components/UserProfile.jsx";
 
 
 
@@ -74,6 +75,8 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/trip/:tripId/add-day" element={<AddDay />} />
             <Route path="/trip/:tripId" element={<SingleTrip />} />
+            <Route path="/user/:id" element={<UserProfile />} />
+            <Route path="/trip/:id" element={<SingleTrip />} />
           </Routes>
         </main>
       </div>

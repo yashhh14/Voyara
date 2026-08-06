@@ -50,6 +50,17 @@ app.get("/search", async (req, res) => {
         });
     }
 });
+
+app.get("/user/:id", async (req, res) => {
+    const user = await User.findById(req.params.id).select("-password");
+    const trips = await Trip.find({
+        user: req.params.id
+    });
+    res.json({
+        user,
+        trips
+    });
+});
 app.get("/friendsPosts", async (req, res) => {
     try {
         const token = req.headers.authorization.split(" ")[1];
